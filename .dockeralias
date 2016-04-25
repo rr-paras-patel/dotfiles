@@ -4,8 +4,17 @@
 #
 # Helper functions
 #
+#display all containers
+alias "dca"="docker ps -a"
 
+#Clean all stopped container and images
 dcleanupall(){
           docker rm -v $(docker ps --filter status=exited -q 2>/dev/null) 2>/dev/null
           docker rmi $(docker images --filter dangling=true -q 2>/dev/null) 2>/dev/null
+}
+
+#Clean all containers
+dcleanallcontainer(){
+   docker stop $(docker ps --filter status=created --filter status=exited -q)
+	 docker rm -v $(docker ps --filter status=exited -q 2>/dev/null) 2>/dev/null
 }
