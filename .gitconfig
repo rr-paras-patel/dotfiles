@@ -1,0 +1,15 @@
+# This is Git's per-user configuration file.
+[user]
+# Please adapt and uncomment the following lines:
+#	name = Paras Patel
+#	email = parasprince2001@gmail.com
+[user]
+	name = Paras Patel
+	email = parasprince2001@gmail.com
+[alias]
+
+	# View abbreviated SHA, description, and history graph of the latest 25 commits
+	l = log --pretty=oneline -n 25 --graph --abbrev-commit
+
+	# Show the diff between the latest commit and the current state
+	d = !"git diff-index --quiet HEAD -- || clear; git --no-pager diff --patch-with-stat"
